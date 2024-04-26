@@ -8,6 +8,17 @@
     <meta name="description" content="Will you go to prom with me? A website to invite your girlfriend to prom."/>
     <meta name="keywords" content="Promposal, prom, asking to prom, prom invitation"/>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        .mySlides {
+            display: none; /* Hide all slides initially */
+        }
+        .mySlides:first-child {
+            display: block; /* Show only the first slide */
+        }
+        #ans {
+            display: none; /* Hide celebration message initially */
+        }
+    </style>
 </head>
 <body>
 <!-- Flower petals animation container -->
@@ -56,76 +67,49 @@
     </div>
 </div>
 
-<!-- Celebration message -->
-<div id="ans" class="container">
-    <div class="header_text_container">
-        <h1 class="header_text">Yeeeyyyy!!</h1>
-    </div>
-    <div class="gif_container">
-        <img src="image/prom_celebration.gif" alt="Prom celebration animation">
-    </div>
-    <!-- Add any additional content for celebration here -->
-</div>
-
 <!-- Buttons -->
 <div class="buttons">
     <button class="btn" id="yesButton" onclick="celebrate()">Yes</button>
     <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
 </div>
 
+<!-- Script for slideshow -->
 <script>
-    // Function to play audio
-    function playAudio() {
-        document.getElementById('novideo').play();
-    }
+    var slideIndex = 1;
+    let map;
+    const locCode = JSON.parse(document.currentScript.nextElementSibling.textContent);
+    showSlides(slideIndex);
 
-    // Function to show next page
-    function nextPage() {
-        document.getElementById('ans').style.display = 'block';
-        document.getElementById('ask').style.display = 'none';
-        document.getElementById('novideo').pause();
-        document.getElementById('ansvideo').play();
-    }
-
-    // Function to move the "No" button randomly
-    function moveButton() {
-        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
-        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
-        document.getElementById('noButton').style.left = `${x}px`;
-        document.getElementById('noButton').style.top = `${y}px`;
-        playAudio();
-    }
-
-    // Function to handle slideshow
-    var slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-        setTimeout(showSlides, 15000); // Change image every 15 seconds
-    }
-
-    // Function to move slideshow to previous or next slide
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
 
-    // Function to display a celebration message
-    function celebrate() {
-        nextPage(); // Show celebration message
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
     }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {slideIndex = 1;}
+        if (n < 1) {slideIndex = slides.length;}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+
+    // Function to display celebration message and hide the invitation
+    function celebrate() {
+        document.getElementById('ans').style.display = 'block';
+        document.getElementById('ask').style.display = 'none';
+        // Add any additional celebration functionality here
+        // For now, let's redirect to another page after 3 seconds
+        setTimeout(function(){
+            window.location.href = "next_page.html"; // Replace "next_page.html" with the URL of your next page
+        }, 3000); // 3 seconds delay before redirecting
+    }
+
 </script> 
 </body>
 </html>
