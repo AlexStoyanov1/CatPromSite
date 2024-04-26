@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-IN" dir="ltr">
 <head>
-    <title>Will you go to prom with me?</title>
     <meta charset="utf-8">
     <meta name="author" content="SidPro"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -18,12 +17,26 @@
         #ans {
             display: none; /* Hide celebration message initially */
         }
+        .title-container {
+            text-align: center; /* Center align the title */
+            margin-bottom: 20px; /* Adjust margin bottom */
+            margin-top: 20px; /* Adjust margin top */
+        }
+        .fancy-script {
+            font-family: 'Pacifico', cursive; /* Fancy font */
+            font-size: 36px; /* Adjust font size */
+        }
     </style>
 </head>
 <body>
+
 <!-- Flower petals animation container -->
 <div class="flower-petals-container">
     <img src="image/Petal.gif" alt="Flower petals" class="flower-petals">
+</div>
+<!-- Title -->
+<div class="title-container">
+    <h1 class="fancy-script">Do you Want to Go to Prom with Me?</h1>
 </div>
 <!-- Flower petals animation container ends -->
 <div id="ask" class="container">
@@ -110,6 +123,35 @@
         }, 3000); // 3 seconds delay before redirecting
     }
 
-</script> 
+    function playAudio()
+    {
+        document.getElementById('novideo').play();
+    }
+
+    var debounce = function(fn, t = 1000) {
+        let timer;
+        return function(...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn(...args), t);
+        }
+    };
+
+    function nextPage() {
+        //window.location.href = "yes.html";
+        document.getElementById('ans').style.display = 'block';
+        document.getElementById('ask').style.display = 'none';
+        document.getElementById('novideo').pause();
+        document.getElementById('ansvideo').play();
+    }
+
+    function moveButton() {
+        var button = document.getElementById('noButton');
+        var x = Math.random() * (window.innerWidth - button.offsetWidth);
+        var y = Math.random() * (window.innerHeight - button.offsetHeight);
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+        playAudio();
+    }
+</script>
 </body>
 </html>
