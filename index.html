@@ -34,6 +34,11 @@
 <div class="flower-petals-container">
     <img src="image/Petal.gif" alt="Flower petals" class="flower-petals">
 </div>
+
+<audio id="background-music" loop>
+    <source src="enchanted.mp4" type="audio/mp4; codecs=mp4a.40.2">
+    Your browser does not support the audio element.
+</audio>
 <!-- Title -->
 <div class="title-container">
     <h1 class="fancy-script">Do you Want to Go to Prom with Me?</h1>
@@ -51,7 +56,7 @@
             <!-- Full-width images with number and caption text -->
             <div class="mySlides fade">
                 <div class="image-container"> <!-- Add image container -->
-                    <img src="image/CatPic1.jpeg" class="slideshow-image slide-image" alt="Cat Picture 1">
+                    <img src="image/Winnie1.jpeg" class="slideshow-image slide-image" alt="Cat Picture 1">
                 </div>
             </div>
             
@@ -64,6 +69,18 @@
             <div class="mySlides fade">
                 <div class="image-container"> <!-- Add image container -->
                     <img src="image/CatPic3.jpeg" class="slideshow-image slide-image" alt="Cat Picture 3">
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="image-container"> <!-- Add image container -->
+                    <img src="image/CatPic5.jpeg" class="slideshow-image slide-image" alt="Cat Picture 3">
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="image-container"> <!-- Add image container -->
+                    <img src="image/CatPic6.jpeg" class="slideshow-image slide-image" alt="Cat Picture 3">
                 </div>
             </div>
 
@@ -169,7 +186,9 @@
         playAudio();
     }
     
-    
+    window.onload = function() {
+        document.getElementById("background-music").play();
+    }
     
 </script>
 </body>
