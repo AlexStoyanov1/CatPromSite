@@ -22,17 +22,6 @@ body {
     object-fit: cover;
 }
 
-/* Caption text */
-.text {
-    position: absolute;
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    bottom: 1px;
-    width: 100%;
-    text-align: center;
-}
-
 /* Slideshow container */
 .slideshow-container {
     position: relative;
@@ -50,26 +39,6 @@ body {
     display: block; /* Ensure images are displayed as block elements */
     margin: 0 auto; /* Center align images horizontally */
     border-radius: 10px; /* Round the edges */
-}
-
-/* Buttons container */
-.buttons {
-    width: 100%; /* Make buttons container full width */
-    text-align: center; /* Center align buttons */
-    margin-top: 20px; /* Adjust margin-top as needed */
-}
-
-/* Individual button styles */
-.btn {
-    background-color: #FFB6C1;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 12px;
-    transition: background-color 0.3s ease;
-    margin: 0 10px;
 }
 
 /* Slideshow buttons */
@@ -127,4 +96,155 @@ body {
     100% {
         transform: translateY(100%);
     }
+}
+
+#noButton {
+    position: absolute;
+    margin-left: 150px;
+    transition: 0.5s;
+}
+
+#yesButton {
+    position: absolute;
+    margin-right: 150px;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.btn {
+    background-color: #FFB6C1;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color:  #ff8e9f;
+}
+ /* Global styles */
+ body {
+    height: 100vh;
+    margin: 0;
+    background-color: #F8C8DC; /* Light pink background */
+}
+
+/* Container for prom background and slideshow */
+.container {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* Prom background image */
+.prom-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Caption text */
+.text {
+    position: absolute;
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 450px; /* Adjust max-width as needed */
+    margin: auto;
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    z-index: 2; /* Ensure slideshow is above prom background */
+    text-align: center; /* Center align images */
+    margin-top: 20px; /* Adjust margin-top as needed */
+}
+
+/* Slideshow images */
+.slideshow-image {
+    width: 100%; /* Ensure the image fills the entire width of its container */
+    max-height: 100%;
+    display: block; /* Ensure images are displayed as block elements */
+    margin: 0 auto; /* Center align images horizontally */
+    border-radius: 10px; /* Round the edges */
+}
+
+/* Buttons container */
+.buttons {
+    position: relative; /* Change position to relative */
+    width: 100%; /* Make buttons container full width */
+    text-align: center; /* Center align buttons */
+    margin-top: 20px; /* Adjust margin-top as needed */
+}
+
+/* Individual button styles */
+.btn {
+    background-color: #FFB6C1;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+/* Slideshow buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.label {
+    text-align: center;
+    margin-top: 20px;
+}
+.label-text {
+    font-size: 18px;
+    color: #333;
 }
