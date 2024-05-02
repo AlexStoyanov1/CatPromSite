@@ -26,6 +26,13 @@
             font-family: 'Pacifico', cursive; /* Fancy font */
             font-size: 36px; /* Adjust font size */
         }
+        .text-overlay {
+            position: static; /* Change to static positioning */
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -39,15 +46,16 @@
     <source src="enchanted.mp4" type="audio/mp4; codecs=mp4a.40.2">
     Your browser does not support the audio element.
 </audio>
+
 <!-- Title -->
 <div class="title-container">
-    <h1 class="fancy-script">Do you Want to Go to Prom with Me?</h1>
+    <div class="text-overlay">
+        <h1 class="fancy-script">Do you Want to Go to Prom with Me?</h1>
+    </div>
 </div>
+
 <!-- Flower petals animation container ends -->
 <div id="ask" class="container">
-    <div class="header_text_container">
-        <h1 class="header_text">Will you go to prom with me?</h1>
-    </div>
     <div class="gif_container">
         <!-- Prom background image -->
         <img src="image/prom2.jpeg" alt="Prom background image" class="prom-background">
@@ -129,15 +137,8 @@
         slides[slideIndex-1].style.display = "block";
     }
 
-    // Function to display celebration message and hide the invitation
     function celebrate() {
-        document.getElementById('ans').style.display = 'block';
-        document.getElementById('ask').style.display = 'none';
-        // Add any additional celebration functionality here
-        // For now, let's redirect to another page after 3 seconds
-        setTimeout(function(){
-            window.location.href = "next_page.html"; // Replace "next_page.html" with the URL of your next page
-        }, 3000); // 3 seconds delay before redirecting
+        window.location.href = "celebration.html";
     }
 
     function playAudio()
@@ -154,7 +155,7 @@
     };
 
     function nextPage() {
-        //window.location.href = "yes.html";
+        window.location.href = "celebration.html";
         document.getElementById('ans').style.display = 'block';
         document.getElementById('ask').style.display = 'none';
         document.getElementById('novideo').pause();
